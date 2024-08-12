@@ -8,32 +8,35 @@
    - Se mantuvo la importación de `load_dotenv` de `dotenv`.
 
 2. **Carga de variables de entorno**:
-   - Simplificación de la carga de variables de entorno eliminando `find_dotenv`.
+   - Se simplificó la carga de variables de entorno eliminando el uso de `find_dotenv`.
 
 3. **Configuración de variables de entorno y encabezados**:
    - Se eliminaron las configuraciones relacionadas con `openai` (`api_key`, `api_type`, `api_version`, `api_base`).
+   - Se mantuvo la configuración del token y los encabezados para las solicitudes HTTP.
 
-4. **Definición de la URL para los pull requests**:
-   - Se mantuvo la definición de la URL para los pull requests.
+4. **URL para las solicitudes de pull requests**:
+   - Se definió la URL para obtener los pull requests del repositorio.
 
-5. **Obtención de la lista de pull requests**:
-   - Se reorganizó el código para manejar la respuesta de la solicitud de pull requests de manera más clara.
-   - Se añadió una verificación temprana para la respuesta de la solicitud de pull requests.
+5. **Manejo de la respuesta de la solicitud de pull requests**:
+   - Se reorganizó el código para manejar la respuesta de la solicitud de pull requests.
+   - Se simplificó la lógica para verificar el estado de la respuesta y la existencia de pull requests.
 
 6. **Procesamiento de los pull requests**:
-   - Se simplificó la lógica para encontrar el número más alto de pull request.
-   - Se añadió una verificación temprana para la existencia de `diff_url`.
+   - Se eliminó la lógica para obtener el número del último pull request procesado.
+   - Se simplificó la obtención de la URL del diff del primer pull request.
 
-7. **Obtención del diff del primer pull request**:
-   - Se reorganizó el código para manejar la respuesta de la solicitud del diff de manera más clara.
-   - Se añadió una verificación temprana para la respuesta de la solicitud del diff.
+7. **Manejo de la respuesta de la solicitud del diff**:
+   - Se reorganizó el código para manejar la respuesta de la solicitud del diff.
+   - Se eliminó la lógica para procesar el contenido del diff con `openai`.
 
 8. **Publicación del comentario de revisión**:
-   - Se eliminó la lógica relacionada con la generación de mensajes para `openai.ChatCompletion`.
-   - Se simplificó la lógica para publicar el comentario de revisión directamente con el contenido del diff.
-   - Se añadió una verificación para la respuesta de la solicitud de publicación del comentario.
+   - Se simplificó la lógica para publicar el comentario de revisión en GitHub.
+   - Se eliminó la lógica para generar el contenido del comentario usando `openai`.
+
+9. **Mensajes de error y éxito**:
+   - Se reorganizaron y simplificaron los mensajes de error y éxito para las solicitudes HTTP.
 
 ### Resumen
 
-Este pull request refactoriza `main.py` para simplificar y limpiar el código, eliminando dependencias innecesarias y mejorando la claridad y eficiencia del flujo de trabajo para obtener y comentar sobre los pull requests.
+Este pull request refactoriza `main.py` para simplificar y optimizar el código, eliminando dependencias innecesarias y mejorando la claridad y eficiencia del manejo de solicitudes HTTP y la publicación de comentarios en GitHub.
 </document_2: legacy documentation>
