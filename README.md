@@ -1,36 +1,34 @@
-<document_2: legacy documentation>
 # AutomateDocumentation
 
-### Descripción de los cambios en el Pull Request
+### Description of Changes in the Pull Request
 
-1. **Importaciones**:
-   - Se eliminaron las importaciones de `openai` y `find_dotenv`.
-   - Se mantuvo la importación de `load_dotenv` de `dotenv`.
+1. **Imports**:
+   - Removed imports of `openai` and `find_dotenv`.
+   - Kept the import of `load_dotenv` from `dotenv`.
 
-2. **Carga de variables de entorno**:
-   - Se simplificó la carga de variables de entorno eliminando el uso de `find_dotenv`.
+2. **Loading Environment Variables**:
+   - Simplified the loading of environment variables by removing the use of `find_dotenv`.
 
-3. **Configuración de variables y encabezados**:
-   - Se eliminaron las configuraciones relacionadas con `openai` (`api_key`, `api_type`, `api_version`, `api_base`).
-   - Se mantuvieron las configuraciones de `token`, `user`, `repo` y `headers`.
+3. **Configuration of Variables and Headers**:
+   - Removed configurations related to `openai` (`api_key`, `api_type`, `api_version`, `api_base`).
+   - Kept configurations for `token`, `user`, `repo`, and `headers`.
 
-4. **Obtención de Pull Requests**:
-   - Se reorganizó el código para obtener la lista de pull requests y manejar errores de manera más clara.
-   - Se añadió una verificación para salir del script si no se encuentran pull requests.
+4. **Fetching Pull Requests**:
+   - Reorganized the code to fetch the list of pull requests and handle errors more clearly.
+   - Added a check to exit the script if no pull requests are found.
 
-5. **Procesamiento de Pull Requests**:
-   - Se simplificó la lógica para encontrar el número más alto de pull request.
-   - Se añadió una verificación para manejar la ausencia de `diff_url`.
+5. **Processing Pull Requests**:
+   - Simplified the logic to find the highest pull request number.
+   - Added a check to handle the absence of `diff_url`.
 
-6. **Obtención del diff**:
-   - Se reorganizó el código para obtener el diff del primer pull request y manejar errores de manera más clara.
+6. **Fetching the Diff**:
+   - Reorganized the code to fetch the diff of the first pull request and handle errors more clearly.
 
-7. **Publicación del comentario de revisión**:
-   - Se eliminó la lógica relacionada con la generación de mensajes para `openai.ChatCompletion`.
-   - Se simplificó la publicación del comentario de revisión utilizando directamente el contenido del diff.
-   - Se añadió manejo de errores para la publicación del comentario.
+7. **Posting the Review Comment**:
+   - Removed the logic related to generating messages for `openai.ChatCompletion`.
+   - Simplified the posting of the review comment by directly using the content of the diff.
+   - Added error handling for posting the comment.
 
-### Resumen
+### Summary
 
-Este pull request refactoriza `main.py` para simplificar y optimizar el código, eliminando dependencias innecesarias y mejorando la claridad y eficiencia del manejo de solicitudes HTTP y la publicación de comentarios en GitHub.
-</document_2: legacy documentation>
+This pull request refactors `main.py` to simplify and optimize the code, eliminating unnecessary dependencies and improving the clarity and efficiency of handling HTTP requests and posting comments on GitHub.
