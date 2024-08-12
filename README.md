@@ -10,31 +10,25 @@
 2. **Carga de variables de entorno**:
    - Se simplificó la carga de variables de entorno eliminando el uso de `find_dotenv`.
 
-3. **Configuración de variables de entorno y encabezados**:
+3. **Configuración de variables y encabezados**:
    - Se eliminaron las configuraciones relacionadas con `openai` (`api_key`, `api_type`, `api_version`, `api_base`).
-   - Se mantuvo la configuración del token y los encabezados para las solicitudes HTTP.
+   - Se mantuvieron las configuraciones de `token`, `user`, `repo` y `headers`.
 
-4. **URL para las solicitudes de pull requests**:
-   - Se definió la URL para obtener los pull requests del repositorio.
+4. **Obtención de Pull Requests**:
+   - Se reorganizó el código para obtener la lista de pull requests y manejar errores de manera más clara.
+   - Se añadió una verificación para salir del script si no se encuentran pull requests.
 
-5. **Manejo de la respuesta de la solicitud de pull requests**:
-   - Se reorganizó el código para manejar la respuesta de la solicitud de pull requests.
-   - Se simplificó la lógica para verificar el estado de la respuesta y la existencia de pull requests.
+5. **Procesamiento de Pull Requests**:
+   - Se simplificó la lógica para encontrar el número más alto de pull request.
+   - Se añadió una verificación para manejar la ausencia de `diff_url`.
 
-6. **Procesamiento de los pull requests**:
-   - Se eliminó la lógica para obtener el número del último pull request procesado.
-   - Se simplificó la obtención de la URL del diff del primer pull request.
+6. **Obtención del diff**:
+   - Se reorganizó el código para obtener el diff del primer pull request y manejar errores de manera más clara.
 
-7. **Manejo de la respuesta de la solicitud del diff**:
-   - Se reorganizó el código para manejar la respuesta de la solicitud del diff.
-   - Se eliminó la lógica para procesar el contenido del diff con `openai`.
-
-8. **Publicación del comentario de revisión**:
-   - Se simplificó la lógica para publicar el comentario de revisión en GitHub.
-   - Se eliminó la lógica para generar el contenido del comentario usando `openai`.
-
-9. **Mensajes de error y éxito**:
-   - Se reorganizaron y simplificaron los mensajes de error y éxito para las solicitudes HTTP.
+7. **Publicación del comentario de revisión**:
+   - Se eliminó la lógica relacionada con la generación de mensajes para `openai.ChatCompletion`.
+   - Se simplificó la publicación del comentario de revisión utilizando directamente el contenido del diff.
+   - Se añadió manejo de errores para la publicación del comentario.
 
 ### Resumen
 
