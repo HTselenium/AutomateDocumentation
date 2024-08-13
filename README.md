@@ -1,34 +1,72 @@
-### Descripción de los cambios en el Pull Request
+### Documentation Automated
 
-1. **Importaciones**:
-   - Se eliminaron las importaciones de `openai` y `find_dotenv`.
-   - Se mantuvo la importación de `load_dotenv` de `dotenv`.
+**GitHub Pull Request Retrieval Documentation**
+**Overview**
+**This documentation provides a guide on how to retrieve a specific pull request from a GitHub repository using the GitHub API. The process involves sending an HTTP GET request to the GitHub API endpoint for pull requests, with proper authorization and targeting a specific pull request by its number.**
 
-2. **Carga de variables de entorno**:
-   - Se añadió un comentario para clarificar la llamada a la función `load_dotenv()`.
+**Prerequisites**
+Before you can retrieve a pull request, ensure you have the following:
 
-3. **Configuración de variables de entorno y encabezados**:
-   - Se eliminaron las configuraciones relacionadas con `openai` (`OPENAI_API_KEY`, `OPENAI_API_TYPE`, `OPENAI_API_VERSION`, `OPENAI_API_BASE`).
-   - Se definió directamente el diccionario `headers` con los valores necesarios para la autorización y el tipo de contenido.
+- A GitHub account with access to the repository.
+- A personal access token (PAT) with the appropriate permissions to access repository data.
+- The owner's username of the repository.
+- The repository name.
+- The pull request number you wish to retrieve.
+- Environment Setup
+- Environment Variables: Store sensitive information such as the personal access token, the repository owner's username, and the repository name as environment variables to keep them secure.
 
-4. **Definición de la URL de la API**:
-   - Se añadió un nuevo comentario `# Define the URL for the pull requests` para mayor claridad.
-   - Se definió la variable `url` para construir el punto final de la API de GitHub para pull requests.
+**Load Environment Variables: Use the dotenv package to load the environment variables from a .env file.**
 
-5. **Obtención de Pull Requests**:
-   - Se reorganizó el código para obtener la lista de pull requests y manejar errores de manera más clara.
-   - Se simplificó la lógica para encontrar el número más alto de pull request.
+Retrieving a Pull Request
+### Step 1: Define Environment Variables
+Create a .env file in your project directory and add the following variables:
 
-6. **Procesamiento de Pull Requests**:
-   - Se eliminó la lógica para obtener y procesar el diff de la primera pull request utilizando `openai.ChatCompletion.create`.
-   - Se simplificó la obtención del diff de la primera pull request y se manejaron errores de manera más clara.
+PR_REVIEW_BOT_TOKEN='your_personal_access_token'
+PR_REVIEW_BOT_OWNER='repository_owner_username'
+PR_REVIEW_BOT_REPO_NAME='repository_name'
 
-7. **Publicación de comentarios**:
-   - Se construye una URL de comentario y se prepara un comentario de revisión utilizando el texto de respuesta del diff.
-   - Luego se publica el comentario de revisión en GitHub y se maneja la respuesta, imprimiendo un mensaje de éxito o un mensaje de error con el código de estado y los detalles de la respuesta.
+Replace the placeholder values with your actual token, user, and repository name.
 
-### Código Refactorizado
+### Step 2: Load Environment Variables
+Use the dotenv package to load the environment variables:
 
-El código ha sido refactorizado para ser más claro y conciso, eliminando dependencias innecesarias y simplificando la lógica de procesamiento y publicación de comentarios en GitHub.
+from dotenv import load_dotenv, find_dotenv
 
-Documentation Automated
+load_dotenv(find_dotenv())
+
+### Step 3: Set Authorization Header
+Prepare the authorization header using the token:
+
+import os
+
+token = os.getenv("PR_REVIEW_BOT_TOKEN")
+headers = {'Authorization': f'token {token}'}
+
+### Step 4: Construct the Request URL
+Combine the user and repo environment variables to form the pull request URL:
+
+user = os.getenv("PR_REVIEW_BOT_OWNER")
+repo = os.getenv("PR_REVIEW_BOT_REPO_NAME")
+
+url = f'https://api.github.com/repos/{user}/{repo}/pulls/1'
+
+### Step 5: Send the GET Request
+Use the requests library to send an HTTP GET request to the GitHub API:
+
+import requests
+
+response = requests.get(url, headers=headers)
+
+### Step 6: Handle the Response
+Check if the request was successful and handle the response accordingly:
+
+if response:
+    data = response.json()
+    print("GitHub Pull Request is caught")
+else:
+    print("GitHub Pull Request is not caught:")
+
+If the request is successful, the pull request data will be available in the data variable as a JSON object. If the request fails, an error message will be printed.
+
+**Conclusion**
+This guide provides a step-by-step approach to retrieve a pull request from a GitHub repository using the GitHub API. Remember to handle your personal access token with care and never expose it in your code or version control systems.
