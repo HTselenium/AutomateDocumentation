@@ -5,23 +5,27 @@
    - Se mantuvo la importación de `load_dotenv` de `dotenv`.
 
 2. **Carga de variables de entorno**:
-   - Se simplificó la carga de variables de entorno eliminando el uso de `find_dotenv`.
+   - Se añadió un comentario para clarificar la llamada a la función `load_dotenv()`.
 
 3. **Configuración de variables de entorno y encabezados**:
-   - Se eliminaron las configuraciones relacionadas con `openai` (`api_key`, `api_type`, `api_version`, `api_base`).
-   - Se mantuvo la configuración del token y los encabezados para las solicitudes HTTP.
+   - Se eliminaron las configuraciones relacionadas con `openai` (`OPENAI_API_KEY`, `OPENAI_API_TYPE`, `OPENAI_API_VERSION`, `OPENAI_API_BASE`).
+   - Se definió directamente el diccionario `headers` con los valores necesarios para la autorización y el tipo de contenido.
 
-4. **Obtención de Pull Requests**:
+4. **Definición de la URL de la API**:
+   - Se añadió un nuevo comentario `# Define the URL for the pull requests` para mayor claridad.
+   - Se definió la variable `url` para construir el punto final de la API de GitHub para pull requests.
+
+5. **Obtención de Pull Requests**:
    - Se reorganizó el código para obtener la lista de pull requests y manejar errores de manera más clara.
    - Se simplificó la lógica para encontrar el número más alto de pull request.
 
-5. **Procesamiento de Pull Requests**:
+6. **Procesamiento de Pull Requests**:
    - Se eliminó la lógica para obtener y procesar el diff de la primera pull request utilizando `openai.ChatCompletion.create`.
    - Se simplificó la obtención del diff de la primera pull request y se manejaron errores de manera más clara.
 
-6. **Publicación de comentarios**:
-   - Se eliminó la lógica para generar un análisis detallado utilizando `openai`.
-   - Se simplificó la publicación del comentario con el diff obtenido directamente.
+7. **Publicación de comentarios**:
+   - Se construye una URL de comentario y se prepara un comentario de revisión utilizando el texto de respuesta del diff.
+   - Luego se publica el comentario de revisión en GitHub y se maneja la respuesta, imprimiendo un mensaje de éxito o un mensaje de error con el código de estado y los detalles de la respuesta.
 
 ### Código Refactorizado
 
