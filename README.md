@@ -4,27 +4,27 @@ The pull request introduces several changes to `main.py`:
 
 1. **Removed Imports:**
    - The `openai` import has been removed, indicating that OpenAI's API is no longer being used in this script.
-   - The `find_dotenv` function from the `dotenv` package has been removed, simplifying the environment variable loading process.
+   - The `find_dotenv` function from the `dotenv` package is no longer imported, suggesting that the environment loading process has been simplified.
 
 2. **Environment Variable Loading:**
-   - The comment `# Load environment variables` has been added to describe the `load_dotenv()` function call more clearly.
+   - The comment above `load_dotenv()` has been updated to be more descriptive ("# Load environment variables").
 
 3. **Environment Variable Usage:**
-   - The script no longer sets up OpenAI API-related environment variables (`OPENAI_API_KEY`, `OPENAI_API_TYPE`, `OPENAI_API_VERSION`, `OPENAI_API_BASE`), suggesting that the script's functionality related to OpenAI has been removed.
+   - The script no longer sets up OpenAI API-related environment variables (`OPENAI_API_KEY`, `OPENAI_API_TYPE`, `OPENAI_API_VERSION`, `OPENAI_API_BASE`). This change aligns with the removal of the `openai` import.
 
-4. **Headers Setup:**
-   - The headers dictionary is now directly defined without the previously removed OpenAI variables.
+4. **Headers Configuration:**
+   - The headers for the API requests are now directly defined without the previously set OpenAI API variables.
 
 5. **URL Definition:**
-   - A new comment `# Define the URL for the pull requests` has been added to clarify the purpose of the `url` variable.
+   - The URL for the pull requests is now defined using the `user` and `repo` variables, which are fetched from the environment variables.
 
-6. **Removed Code Blocks:**
-   - A large block of code that handled the retrieval and processing of pull requests, including error handling and posting comments to GitHub, has been removed.
-   - The script no longer fetches diffs, processes messages for the GPT model, or posts reviews to GitHub.
+6. **Response Handling:**
+   - The previous code for handling the response from the GitHub API, including error checking, processing pull requests, and posting comments, has been removed.
 
-7. **New Code Blocks:**
-   - The new code introduces a simplified process for fetching pull requests from GitHub and handling errors.
-   - It includes a check for the `diff_url` and exits if not found, rather than the previous detailed error handling.
-   - The script now directly posts a review comment with the diff text to GitHub without processing it through an AI model.
+7. **New Response Handling:**
+   - The new code introduces a simplified flow for fetching pull requests, checking for errors, and processing the response.
+   - It includes error handling for unsuccessful requests and exits the script if no pull requests are found or if there is an error fetching the diff for the first pull request.
+   - The script now prints the number of the last processed pull request.
+   - It also includes a new mechanism for posting a review comment to GitHub, using the diff from the first pull request.
 
-Overall, the pull request significantly simplifies `main.py` by removing the integration with OpenAI's API and streamlining the process of fetching and handling pull requests from GitHub.
+Overall, the pull request seems to streamline the script by removing dependencies on the OpenAI API and simplifying the process of loading environment variables, fetching pull requests, and posting comments.
