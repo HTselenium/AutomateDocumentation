@@ -1,3 +1,4 @@
+<document_2: legacy documentation>
 Documentation Automation
 
 The pull request introduces several changes to `main.py`:
@@ -29,3 +30,4 @@ The pull request introduces several changes to `main.py`:
    - The process for posting a review comment has been retained but simplified. The script now posts the raw diff text as the review comment without processing it through the OpenAI API.
 
 In summary, the pull request refactors `main.py` by removing dependencies on the OpenAI API, simplifying the environment variable loading, and streamlining the process of fetching and handling pull requests from GitHub.
+</document_2: legacy documentation>
