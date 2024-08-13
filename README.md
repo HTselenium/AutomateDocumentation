@@ -1,6 +1,3 @@
-<document_1: new part of documentation>
-**BOT review:** 
-
 ### Descripción de los cambios en el Pull Request
 
 1. **Importaciones**:
@@ -29,9 +26,5 @@
 ### Código Refactorizado
 
 El código ha sido refactorizado para ser más claro y conciso, eliminando dependencias innecesarias y simplificando la lógica de procesamiento y publicación de comentarios en GitHub.
-</document_1: new part of documentation>
 
-<document_2: legacy documentation>
 Documentation Automated
-
-</document_2: legacy documentation>
