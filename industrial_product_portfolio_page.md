@@ -29,6 +29,7 @@ industrialProductTypeListData[i]['has_children']
 **if True (has children)** 
 goes to industrial_product_portfolio_child_page.dart
 ```dart
+context.push(
 '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
  extra: {
 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
