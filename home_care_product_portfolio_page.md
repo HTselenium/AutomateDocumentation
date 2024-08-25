@@ -31,9 +31,10 @@ goes to home_care_product_portfolio_child_page.dart
 'product_type': productTypeListData[i]['product_type'].toString(),
 ```
 **if False (does not have children)** 
-goes to home_care_product_portfolio_sub_child_page.dart
+goes to home_care_product_portfolio_sub_child_page.dart with additional parameters
 
 ```dart
 'product_type_id': productTypeListData[i]['product_type_id'].toString(),
 'product_type': productTypeListData[i]['product_type'].toString(),
+// Additional parameters here
 ```
