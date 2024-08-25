@@ -15,7 +15,7 @@ void initState() {
 id: productTypeListData[i]['product_type_id'].toString(),
 productName: productTypeListData[i]['product_type'].toString(),
 productNum: productTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: false,
+isSubProduct: productTypeListData[i]['has_children'] as bool, // Updated to reflect routing logic based on children
 isFavourite: false,
 category: ProductCategory.all[productTypeListData[i]['category'] as int],
 ```
