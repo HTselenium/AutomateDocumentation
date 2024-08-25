@@ -1,6 +1,3 @@
-<document_2: legacy documentation>
-Documentation Automated
-
 ### Descripción de los cambios en el Pull Request
 
 1. **Importaciones**:
@@ -33,5 +30,4 @@ Documentation Automated
 
 ### Resumen
 
-Este Pull Request refactoriza `main.py` para simplificar y optimizar el código. Se eliminan dependencias innecesarias y se simplifica la lógica para manejar y procesar solicitudes de pull, enfocándose en la primera solicitud de pull y su diff.
-</document_2: legacy documentation>
+Este Pull Request refactoriza `main.py` para simplificar y optimizar el código. Se eliminan dependencias innecesarias y se simplifica la lógica para manejar y procesar solicitudes de pull, enfocándose en la primera solicitud de pull y su diff. Además, se ha actualizado la lógica condicional para cambiar la ruta si el `productType` tiene hijos asociados.
