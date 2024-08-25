@@ -15,7 +15,7 @@ void initState() {
 id: productTypeListData[i]['product_type_id'].toString(),
 productName: productTypeListData[i]['product_type'].toString(),
 productNum: productTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: (productTypeListData[i]['has_children'] as bool)? true : false,
+isSubProduct: false,
 isFavourite: false,
 category: ProductCategory.all[productTypeListData[i]['category'] as int],
 ```
