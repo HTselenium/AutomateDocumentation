@@ -48,6 +48,7 @@ extra: {
  'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
+ 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
  'products': industrialProductTypeListData[i]['products'],
 },
 ```
