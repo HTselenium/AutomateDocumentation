@@ -15,7 +15,7 @@ void initState() {
 ```dart
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
-productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
+// productNum: industrialProductTypeListData[i]['product_type_amount'].toString(), // This line has been removed as per the latest update
 isSubProduct: industrialProductTypeListData[i]['has_children'] ?? false,
 isFavourite: false,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
@@ -34,7 +34,7 @@ context.push(
 extra: {
  'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
  'product_type':industrialProductTypeListData[i]['product_type'].toString(),
- 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
+ // 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(), // This line has been removed as per the latest update
 },
 ```
 **if False (does not have children)** 
@@ -48,7 +48,7 @@ extra: {
  'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
- 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
+ // 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(), // This line has been removed as per the latest update
  'products': industrialProductTypeListData[i]['products'],
 },
 ```
