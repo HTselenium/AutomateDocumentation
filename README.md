@@ -30,4 +30,4 @@
 
 ### Resumen
 
-Este Pull Request refactoriza `main.py` para simplificar y optimizar el código. Se eliminan dependencias innecesarias y se simplifica la lógica para manejar y procesar solicitudes de pull, enfocándose en la primera solicitud de pull y su diff. Además, se ha actualizado la lógica condicional para cambiar la ruta si el `productType` tiene hijos asociados.
+Este Pull Request refactoriza `main.py` para simplificar y optimizar el código. Se eliminan dependencias innecesarias y se simplifica la lógica para manejar y procesar solicitudes de pull, enfocándose en la primera solicitud de pull y su diff. Además, se ha actualizado la lógica condicional para cambiar la ruta si el `productType` tiene hijos asociados, indicando mejoras en la estructura del código y la legibilidad sin alterar la funcionalidad.
