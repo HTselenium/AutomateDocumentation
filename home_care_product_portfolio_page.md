@@ -14,7 +14,7 @@ void initState() {
 ```dart
 id: productTypeListData[i]['product_type_id'].toString(),
 productName: productTypeListData[i]['product_type'].toString(),
-productNum: (productTypeListData[i]['has_children'] as bool) ? productTypeListData[i]['products'].toString() : productTypeListData[i]['product_type_amount'].toString(),
+productNum: (productTypeListData[i]['has_children'] as bool) ? '0' : productTypeListData[i]['product_type_amount'].toString(),
 isSubProduct: (productTypeListData[i]['has_children'] as bool)? true : false,
 isFavourite: false,
 category: ProductCategory.all[productTypeListData[i]['category'] as int],
@@ -29,7 +29,6 @@ goes to home_care_product_portfolio_child_page.dart
 ```dart
 'product_type_id': productTypeListData[i]['product_type_id'].toString(),
 'product_type': productTypeListData[i]['product_type'].toString(),
-'products': productTypeListData[i]['products'],
 ```
 **if False (does not have children)** 
 goes to home_care_product_portfolio_sub_child_page.dart
