@@ -7,8 +7,7 @@
 ### Recommended Action
 - The author has updated the pull request with a detailed description of the changes made. This includes the rationale behind the refactor and how the new directory path logic works depending on whether a `productType` has children.
 - The author has included a list of specific files or modules that were changed, along with a brief explanation of what was changed in each file or module to facilitate the review process.
-```
-```markdown
+
 # Documentation Repository
 
 Welcome to the Documentation Repository!
