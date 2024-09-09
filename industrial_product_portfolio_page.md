@@ -36,6 +36,9 @@ extra: {
  'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
  'product_type':industrialProductTypeListData[i]['product_type'].toString(),
  'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
+ 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(), // Updated to match new documentation
+ 'subtype_name': industrialProductTypeListData[i]['product_type'].toString(), // Updated to match new documentation
+ 'products': industrialProductTypeListData[i]['products'], // Updated to match new documentation
 },
 ```
 **if False (does not have children)** 
@@ -48,4 +51,5 @@ extra: {
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
  'products': industrialProductTypeListData[i]['products'],
+},
 ```
