@@ -1,4 +1,3 @@
-```dart
 ## industrial_product_portfolio_page.dart
 
 - ### initState
@@ -49,5 +48,4 @@ extra: {
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
  'products': industrialProductTypeListData[i]['products'],
-```
 ```
