@@ -43,9 +43,10 @@ goes to industrial_product_portfolio_sub_child_page.dart
 
 ```dart
 context.push(
-'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['subtype_id']}/${industrialProductTypeListData[i]['subtype_id']}',
+'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['subtype_id']}',
 extra: {
  'subtype_id': industrialProductTypeListData[i]['subtype_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['subtype_name'].toString(),
  'products': industrialProductTypeListData[i]['products'],
+},
 ```
