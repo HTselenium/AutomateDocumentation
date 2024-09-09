@@ -13,9 +13,9 @@ void initState() {
 ```
 - ### page display
 ```dart
-id: industrialProductTypeListData[i]['product_type_id'].toString(),
-productName: industrialProductTypeListData[i]['product_type'].toString(),
-productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
+id: industrialProductTypeListData[i]['subtype_id'].toString(),
+productName: industrialProductTypeListData[i]['subtype_name'].toString(),
+productNum: (industrialProductTypeListData[i]['products'] as List).length.toString(),
 isSubProduct: false,
 isFavourite: false,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
@@ -31,11 +31,11 @@ goes to industrial_product_portfolio_child_page.dart
 ```dart
  context.push(
  
- '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
+ '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['subtype_id']}/',
 extra: {
- 'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
- 'product_type':industrialProductTypeListData[i]['product_type'].toString(),
- 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
+ 'subtype_id':industrialProductTypeListData[i]['subtype_id'].toString(),
+ 'subtype_name':industrialProductTypeListData[i]['subtype_name'].toString(),
+ 'products': industrialProductTypeListData[i]['products'],
 },
 ```
 **if False (does not have children)** 
@@ -43,9 +43,9 @@ goes to industrial_product_portfolio_sub_child_page.dart
 
 ```dart
 context.push(
-'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
+'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['subtype_id']}/${industrialProductTypeListData[i]['subtype_id']}',
 extra: {
- 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
- 'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
+ 'subtype_id': industrialProductTypeListData[i]['subtype_id'].toString(),
+ 'subtype_name':industrialProductTypeListData[i]['subtype_name'].toString(),
  'products': industrialProductTypeListData[i]['products'],
 ```
