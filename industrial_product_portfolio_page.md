@@ -15,8 +15,8 @@ void initState() {
 ```dart
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
-productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: false,
+productNum: industrialProductTypeListData[i]['products'].length.toString(),
+isSubProduct: industrialProductTypeListData[i]['has_children'],
 isFavourite: false,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
@@ -33,9 +33,9 @@ goes to industrial_product_portfolio_child_page.dart
  
  '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
 extra: {
- 'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
- 'product_type':industrialProductTypeListData[i]['product_type'].toString(),
- 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
+ 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
+ 'subtype_name': industrialProductTypeListData[i]['product_type'].toString(),
+ 'products': industrialProductTypeListData[i]['products'],
 },
 ```
 **if False (does not have children)** 
@@ -48,4 +48,5 @@ extra: {
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
  'products': industrialProductTypeListData[i]['products'],
+},
 ```
