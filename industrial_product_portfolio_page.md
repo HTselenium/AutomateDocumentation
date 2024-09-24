@@ -26,27 +26,26 @@ category: ProductCategory.all[industrialProductTypeListData[i]['category'] as in
 ```dart
 industrialProductTypeListData[i]['has_children']
 ```
-**if False (does not have children)** 
+**if True (has children)** 
 goes to industrial_product_portfolio_child_page.dart
 ```dart
  context.push(
  
- '${AppRoutes.productPortfolioIndustrial.path}/product/category/${industrialProductTypeListData[i]['product_type_id']}/',
+ '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
 extra: {
  'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
  'product_type':industrialProductTypeListData[i]['product_type'].toString(),
  'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
 },
 ```
-**if True (has children)** 
+**if False (does not have children)** 
 goes to industrial_product_portfolio_sub_child_page.dart
 
 ```dart
 context.push(
-'${AppRoutes.productPortfolioIndustrial.path}/product/category/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
+'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
 extra: {
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
  'products': industrialProductTypeListData[i]['products'],
-},
 ```
