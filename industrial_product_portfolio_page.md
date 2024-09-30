@@ -16,8 +16,8 @@ void initState() {
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
 productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: false,
-isFavourite: false,
+isSubProduct: true,
+isFavourite: true,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
 ```
@@ -34,7 +34,7 @@ context.push(
 extra: {
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name': industrialProductTypeListData[i]['product_type'].toString(),
- 'products': industrialProductTypeListData[i]['products'],
+ 'products': industrialProductTypeListData[i]['products'],  
 },
 ```
 **if False (does not have children)** 
@@ -95,10 +95,12 @@ goes to home_care_product_portfolio_sub_child_page.dart
 context.push(
  '${AppRoutes.productPortfolioHomeCare.path}/product/${productTypeListData[i]['category']}/${productTypeListData[i]['product_type_id']}/',
   extra: {
-    'product_type_id': productTypeListData[i]['product_type_id'].toString(),
-    'product_type': productTypeListData[i]['product_type'].toString(),
-    'product_type_amount': productTypeListData[i]['product_type_amount'].toString(),
-  },
+'product_type_id': productTypeListData[i]['product_type_id'].toString(),
+'product_type': productTypeListData[i]['product_type'].toString(),
+'product_type_amount': productTypeListData[i]['product_type_amount'].toString(),
+},
 
 );
 ```
+
+Done.
