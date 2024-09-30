@@ -16,8 +16,8 @@ void initState() {
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
 productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: true,
-isFavourite: true,
+isSubProduct: false,
+isFavourite: false,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
 ```
@@ -29,12 +29,13 @@ industrialProductTypeListData[i]['has_children']
 **if True (has children)** 
 goes to industrial_product_portfolio_child_page.dart
 ```dart
-context.push(
- '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
+ context.push(
+ 
+ '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
 extra: {
- 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
- 'subtype_name': industrialProductTypeListData[i]['product_type'].toString(),
- 'products': industrialProductTypeListData[i]['products'],
+ 'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
+ 'product_type':industrialProductTypeListData[i]['product_type'].toString(),
+ 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
 },
 ```
 **if False (does not have children)** 
@@ -42,14 +43,12 @@ goes to industrial_product_portfolio_sub_child_page.dart
 
 ```dart
 context.push(
-'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
+'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
 extra: {
- 'product_type_id': industrialProductTypeListData[i]['product_type_id'].toString(),
- 'product_type': industrialProductTypeListData[i]['product_type'].toString(),
- 'product_type_amount': industrialProductTypeListData[i]['product_type_amount'].toString(),
-},
+ 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
+ 'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
+ 'products': industrialProductTypeListData[i]['products'],
 ```
-
 ## home_care_product_portfolio_page.dart
 
 - ### initState
@@ -79,32 +78,15 @@ category: ProductCategory.all[productTypeListData[i]['category'] as int],
 **if True (has children)** 
 goes to home_care_product_portfolio_child_page.dart
 ```dart
-context.push(
-  '${AppRoutes.productPortfolioHomeCare.path}/product/${productTypeListData[i]['category']}/${productTypeListData[i]['product_type_id']}/${productTypeListData[i]['product_type_id']}',
-  extra: {
-    'subtype_id': productTypeListData[i]['product_type_id'].toString(),
-    'subtype_name': productTypeListData[i]['product_type'].toString(),
-    'products': productTypeListData[i]['products'],
-  },
-);
+'product_type_id': productTypeListData[i]['product_type_id'].toString(),
+'product_type': productTypeListData[i]['product_type'].toString(),
+'product_type_amount':productTypeListData[i]['product_type_amount'].toString(),
 ```
 **if False (does not have children)** 
 goes to home_care_product_portfolio_sub_child_page.dart
 
 ```dart
-context.push(
- '${AppRoutes.productPortfolioHomeCare.path}/product/${productTypeListData[i]['category']}/${productTypeListData[i]['product_type_id']}/',
-  extra: {
-   'product_type_id': productTypeListData[i]['product_type_id'].toString(),
-'product_type': productTypeListData[i]['product_type'].toString(),
-'product_type_amount': productTypeListData[i]['product_type_amount'].toString(),
-},
-
-);
+'subtype_id': productTypeListData[i]['product_type_id'].toString(),
+'subtype_name': productTypeListData[i]['product_type'].toString(),
+'products': productTypeListData[i]['products'],
 ```
-
-### Summary of Legacy Documentation Updates
-
-The legacy documentation for both `industrial_product_portfolio_page.dart` and `home_care_product_portfolio_page.dart` has been updated to reflect the changes made in the pull request. The `isSubProduct` and `isFavourite` flags have been set to `true` for the industrial product portfolio page, indicating that the items are sub-products and marked as favorites by default. The extra parameters passed during navigation have been updated to include more detailed information such as `subtype_id`, `subtype_name`, and `products` for the industrial page, and `product_type_id`, `product_type`, and `product_type_amount` for the home care page. These updates ensure that the documentation is consistent with the current implementation of the route navigation functionality.
-
-Done.
