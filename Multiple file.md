@@ -16,8 +16,8 @@ void initState() {
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
 productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: true,
-isFavourite: true,
+isSubProduct: false,
+isFavourite: false,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
 ```
@@ -47,8 +47,7 @@ context.push(
 extra: {
  'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
  'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
- 'products': industrialProductTypeListData[i]['products'],  
-},
+ 'products': industrialProductTypeListData[i]['products'],
 ```
 ## home_care_product_portfolio_page.dart
 
@@ -67,8 +66,8 @@ void initState() {
 id: productTypeListData[i]['product_type_id'].toString(),
 productName: productTypeListData[i]['product_type'].toString(),
 productNum: productTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: true,
-isFavourite: true,
+isSubProduct: false,
+isFavourite: false,
 category: ProductCategory.all[productTypeListData[i]['category'] as int],
 ```
 - ### data dispatch
