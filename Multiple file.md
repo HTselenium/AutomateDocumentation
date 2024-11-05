@@ -87,7 +87,22 @@ goes to home_care_product_portfolio_child_page.dart
 goes to home_care_product_portfolio_sub_child_page.dart
 
 ```dart
-'subtype_id': productTypeListData[i]['product_type_id'].toString(),
-'subtype_name': productTypeListData[i]['product_type'].toString(),
-'products': productTypeListData[i]['products'],
+context.push(
+'${AppRoutes.productPortfolioHomeCare.path}/product/${productTypeListData[i]['category']}/${productTypeListData[i]['product_type_id']}/${productTypeListData[i]['product_type_id']}',
+extra: {
+ 'subtype_id': productTypeListData[i]['product_type_id'].toString(),
+ 'subtype_name': productTypeListData[i]['product_type'].toString(),
+ 'products': productTypeListData[i]['products'],
+},
 ```
+
+### Summary of Legacy Documentation Updates
+
+The legacy documentation for both `industrial_product_portfolio_page.dart` and `home_care_product_portfolio_page.dart` has been updated to reflect the changes made in the pull request. The updates include:
+
+- Setting `isSubProduct` and `isFavourite` properties to `true` for product items in the page display section.
+- Adjusting the routing logic in the data dispatch section to handle product types with and without children properly. The URLs and parameters passed to the routing functions have been corrected to match the new routing paths.
+
+These updates ensure that the documentation is consistent with the current implementation of the product portfolio pages, providing accurate information for future maintenance and development.
+
+Done.
