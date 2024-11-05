@@ -1,3 +1,4 @@
+```markdown
 ## industrial_product_portfolio_page.dart
 
 - ### initState
@@ -92,7 +93,7 @@ context.push(
 extra: {
  'subtype_id': productTypeListData[i]['product_type_id'].toString(),
  'subtype_name': productTypeListData[i]['product_type'].toString(),
- 'products': productTypeListData[i]['products'],
+ 'products```': productTypeListData[i]['products'],
 },
 ```
 
