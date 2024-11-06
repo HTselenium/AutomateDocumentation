@@ -16,8 +16,8 @@ void initState() {
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
 productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: false,
-isFavourite: false,
+isSubProduct: true,
+isFavourite: true,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
 ```
