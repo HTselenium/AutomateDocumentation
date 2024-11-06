@@ -24,7 +24,7 @@ category: ProductCategory.all[industrialProductTypeListData[i]['category'] as in
 - ### data dispatch
 **check whether productType has children**
 ```dart
-industrialProductTypeListData[i]['has_children']
+(industrialProductTypeListData[i]['has_children'] as bool)
 ```
 **if True (has children)** 
 goes to industrial_product_portfolio_child_page.dart
