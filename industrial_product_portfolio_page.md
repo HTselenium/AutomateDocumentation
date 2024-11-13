@@ -16,8 +16,8 @@ void initState() {
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
 productNum: industrialProductTypeListData[i]['products']?.length.toString() ?? '0', // Updated to reflect the number of products
-isSubProduct: industrialProductTypeListData[i]['has_children'] as bool, // Updated to reflect if it is a subproduct
-isFavourite: false,
+isSubProduct: true, // Updated to reflect if it is a subproduct
+isFavourite: true,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
 ```
