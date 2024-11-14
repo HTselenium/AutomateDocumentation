@@ -17,7 +17,11 @@ productName: productTypeListData[i]['product_type'].toString(),
 productNum: productTypeListData[i]['product_type_amount'].toString(),
 isSubProduct: false,
 isFavourite: false,
-category: ProductCategory.all[productTypeListData[i]['category'] as int],
+category: ProductCategory.all[
+      productTypeListData[i]['category'] is int
+      ? productTypeListData[i]['category'] as int
+      : 0
+    ],
 ```
 - ### data dispatch
 **check whether productType has children**
