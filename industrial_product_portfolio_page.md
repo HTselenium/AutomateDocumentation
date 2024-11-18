@@ -16,8 +16,8 @@ void initState() {
 id: industrialProductTypeListData[i]['product_type_id'].toString(),
 productName: industrialProductTypeListData[i]['product_type'].toString(),
 productNum: industrialProductTypeListData[i]['product_type_amount'].toString(),
-isSubProduct: false,
-isFavourite: false,
+isSubProduct: true,
+isFavourite: true,
 category: ProductCategory.all[industrialProductTypeListData[i]['category'] as int],
 
 ```
@@ -29,23 +29,26 @@ industrialProductTypeListData[i]['has_children']
 **if True (has children)** 
 goes to industrial_product_portfolio_child_page.dart
 ```dart
- context.push(
- 
- '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
-extra: {
- 'product_type_id':industrialProductTypeListData[i]['product_type_id'].toString(),
- 'product_type':industrialProductTypeListData[i]['product_type'].toString(),
- 'product_type_amount':industrialProductTypeListData[i]['product_type_amount'].toString(),
-},
+ (industrialProductTypeListData[i]['has_children'] as bool)
+        ? context.push(
+             '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
+             extra: {
+               'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
+               'subtype_name': industrialProductTypeListData[i]['product_type'].toString(),
+               'products': industrialProductTypeListData[i]['products'],  
+             },
+          )
 ```
 **if False (does not have children)** 
 goes to industrial_product_portfolio_sub_child_page.dart
 
 ```dart
-context.push(
-'${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/${industrialProductTypeListData[i]['product_type_id']}',
-extra: {
- 'subtype_id': industrialProductTypeListData[i]['product_type_id'].toString(),
- 'subtype_name':industrialProductTypeListData[i]['product_type'].toString(),
- 'products': industrialProductTypeListData[i]['products'],
+: context.push(
+            '${AppRoutes.productPortfolioIndustrial.path}/product/${industrialProductTypeListData[i]['category']}/${industrialProductTypeListData[i]['product_type_id']}/',
+            extra: {
+              'product_type_id': industrialProductTypeListData[i]['product_type_id'].toString(),
+              'product_type': industrialProductTypeListData[i]['product_type'].toString(),
+              'product_type_amount': industrialProductTypeListData[i]['product_type_amount'].toString(),
+            },
+          );
 ```
